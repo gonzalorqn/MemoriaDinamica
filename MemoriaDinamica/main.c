@@ -13,10 +13,13 @@ int ePersona_setNombre(ePersona*, char*);
 int ePersona_getId(ePersona*);
 char* ePersona_getNombre(ePersona*);
 
+ePersona* ePersona_constructor();
+
 int main()
 {
     ePersona* pPersona;
-    pPersona = (ePersona*) malloc(sizeof(ePersona));
+    //pPersona = (ePersona*) malloc(sizeof(ePersona));
+    pPersona = ePersona_constructor();
 
     if(pPersona != NULL)
     {
@@ -40,6 +43,13 @@ int main()
     }
 
     return 0;
+}
+
+ePersona* ePersona_constructor()
+{
+    ePersona* this;
+    this = (ePersona*) malloc(sizeof(ePersona));
+    return this;
 }
 
 int ePersona_setId(ePersona* this, int id)
